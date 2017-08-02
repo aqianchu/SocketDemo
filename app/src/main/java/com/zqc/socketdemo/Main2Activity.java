@@ -1,6 +1,7 @@
 package com.zqc.socketdemo;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -15,6 +16,8 @@ public class Main2Activity extends Activity implements View.OnClickListener {
     private Button bt;
     public static Main2Activity act;
     Handler handler;
+    private Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,7 @@ public class Main2Activity extends Activity implements View.OnClickListener {
         tv = (TextView) findViewById(R.id.textView);
         bt = (Button) findViewById(R.id.button);
         bt.setOnClickListener(this);
+        mContext = this;
         act = this;
         handler = new Handler(Looper.getMainLooper());
     }
@@ -33,7 +37,7 @@ public class Main2Activity extends Activity implements View.OnClickListener {
                 new Thread(){
                     @Override
                     public void run() {
-                        SocketJNI.connect("10.18.73.62", 6868);
+                        SocketJNI.connect(mContext, "10.18.73.62", 6868);
                     }
                 }.start();
                 break;
