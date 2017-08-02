@@ -10,11 +10,16 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-//        externalNativeBuild {
-//            cmake {
-//                cppFlags ""
-//            }
-//        }
+
+        ndk {
+            moduleName "hellojni"
+            stl "stlport_static"
+            ldLibs "log"
+        }
+        sourceSets.main {
+            jni.srcDirs = [] //这个目的是不用as生成Android.mk
+            jniLibs.srcDir "src/main/libs" //这个是lib生成的目录
+        }
     }
     buildTypes {
         release {
@@ -22,11 +27,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    externalNativeBuild {
-//        cmake {
-//            path "CMakeLists.txt"
-//        }
-//    }
 }
 
 dependencies {
