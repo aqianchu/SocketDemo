@@ -8,11 +8,11 @@
         android:id="@+id/TextView01"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="这里显示接收到服务器发来的信息"
+        android:text="服务器端返回信息"
         />
     <EditText
         android:id="@+id/EditText01"
-        android:text="输入要发送的内容"
+        android:text="发送给服务端的信息"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
     </EditText>
