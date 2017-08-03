@@ -31,10 +31,9 @@
     jstring msg = (*env)->NewStringUTF(env,"start");
     //showToast(env,context,msg);//show的时候会出现暂时卡顿，原因不明
     LOGI("connect socket.");  
-    const char* response =  connectRemote("10.18.73.62", 6868); 
+    const char* response =  connectRemote("10.18.73.62", 6868); //response就是服务端传给客户端的内容
     release();  
     LOGI("connect socket end.");  
-    // msg  = (*env)->NewStringUTF(env,response);
-    //showToast(env,context,msg);
-
+    //msg  = (*env)->NewStringUTF(env,response);
+    //showToast(env,context,msg);/
   }  

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,7 +13,6 @@ public class Main2Activity extends Activity implements View.OnClickListener {
 
     private TextView tv;
     private Button bt;
-    public static Main2Activity act;
     Handler handler;
     private Context mContext;
 
@@ -26,7 +24,6 @@ public class Main2Activity extends Activity implements View.OnClickListener {
         bt = (Button) findViewById(R.id.button);
         bt.setOnClickListener(this);
         mContext = this;
-        act = this;
         handler = new Handler(Looper.getMainLooper());
     }
 
@@ -44,14 +41,4 @@ public class Main2Activity extends Activity implements View.OnClickListener {
         }
     }
 
-    public void updateTv(final String msg) {
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                if (!TextUtils.isEmpty(msg)) {
-                    tv.setText(msg);
-                }
-            }
-        });
-    }
 }
